@@ -23,7 +23,7 @@ export function PageHero({ eyebrow, title, intro, crumbs = [], children, media }
     itemListElement: trail.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, item: `${site.url}${c.href === "/" ? "" : c.href}` })),
   };
   return (
-    <section className="border-b border-rail bg-[linear-gradient(180deg,#F7F8FA_0%,#FFFFFF_100%)]">
+    <section className="border-b border-rail bg-[linear-gradient(180deg,#F5F8FC_0%,#FFFFFF_100%)]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />
       <div className={`mx-auto max-w-6xl px-5 pb-12 pt-10 md:pb-14 md:pt-14 ${media ? "grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-14" : ""}`}>
         <div>
@@ -45,6 +45,40 @@ export function PageHero({ eyebrow, title, intro, crumbs = [], children, media }
         {media}
       </div>
     </section>
+  );
+}
+
+/** Photo for a PageHero's `media`: a soft blue and orange glow behind a rounded picture.
+ *  `base` is the file path without the "-640.webp" size suffix. Labels go in `children`. */
+export function PageHeroPhoto({ base, alt, children }: { base: string; alt: string; children?: ReactNode }) {
+  return (
+    <div className="relative">
+      <div aria-hidden className="absolute -inset-4 rounded-[36px] bg-[radial-gradient(circle_at_20%_20%,rgba(40,100,180,0.2),transparent_55%),radial-gradient(circle_at_85%_90%,rgba(242,140,40,0.3),transparent_50%)] blur-2xl" />
+      <picture>
+        <source type="image/webp" srcSet={`${base}-640.webp 640w, ${base}-1024.webp 1024w, ${base}-1600.webp 1600w`} sizes="(min-width: 1024px) 560px, 100vw" />
+        <img src={`${base}-1024.webp`} alt={alt} width={1600} height={1067} fetchPriority="high" decoding="async" className="relative aspect-[3/2] w-full rounded-[28px] object-cover shadow-[0_24px_60px_rgba(16,24,40,0.18)]" />
+      </picture>
+      {children}
+    </div>
+  );
+}
+
+const CHIP_CORNERS = {
+  "top-left": "-left-2 top-6 sm:-left-5",
+  "top-right": "-right-2 top-6 sm:-right-5",
+  "bottom-left": "-left-2 bottom-6 sm:-left-5",
+  "bottom-right": "-right-2 bottom-6 sm:-right-5",
+};
+
+/** White label pinned to the corner of a PageHeroPhoto. Top labels get an orange icon, bottom ones a blue one. */
+export function PhotoChip({ icon, corner, children }: { icon: string; corner: keyof typeof CHIP_CORNERS; children: ReactNode }) {
+  return (
+    <span className={`absolute flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-asphalt shadow-[0_12px_30px_rgba(16,24,40,0.14)] ${CHIP_CORNERS[corner]}`}>
+      <span aria-hidden className={`grid h-7 w-7 place-items-center rounded-full ${corner.startsWith("top") ? "bg-line text-asphalt" : "bg-navy text-line"}`}>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d={icon} /></svg>
+      </span>
+      {children}
+    </span>
   );
 }
 
@@ -134,7 +168,7 @@ export function FaqSection({ faqs, phone, phoneHref, bare = false, withSchema = 
               <p className="mt-2 leading-relaxed text-road">
                 Call <a href={phoneHref} className="font-semibold text-sky underline-offset-2 hover:underline">{phone}</a> and our team will help.
               </p>
-              <Link href={PRODUCTS.vsc.quoteHref} className="btn-primary mt-5 inline-flex bg-line uppercase tracking-wide text-asphalt hover:bg-[#E3B21F]">Get my free quote</Link>
+              <Link href={PRODUCTS.vsc.quoteHref} className="btn-primary mt-5 inline-flex bg-line uppercase tracking-wide text-asphalt hover:bg-line-dark">Get my free quote</Link>
             </aside>
           </>
         ) : (
@@ -144,7 +178,7 @@ export function FaqSection({ faqs, phone, phoneHref, bare = false, withSchema = 
               <p className="mt-3 max-w-sm leading-relaxed text-road">
                 Still unsure? Call <a href={phoneHref} className="font-semibold text-sky underline-offset-2 hover:underline">{phone}</a> and our team will help.
               </p>
-              <a href={PRODUCTS.vsc.quoteHref} className="btn-primary mt-6 inline-flex bg-line uppercase tracking-wide text-asphalt hover:bg-[#E3B21F]">Get my free quote</a>
+              <a href={PRODUCTS.vsc.quoteHref} className="btn-primary mt-6 inline-flex bg-line uppercase tracking-wide text-asphalt hover:bg-line-dark">Get my free quote</a>
             </div>
             {list}
           </>
@@ -158,7 +192,7 @@ export function FaqSection({ faqs, phone, phoneHref, bare = false, withSchema = 
 export function QuoteBanner() {
   return (
     <section className="mx-auto max-w-6xl px-5 pt-4">
-      <Reveal className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(120deg,#0B2F5B_0%,#1F5FAD_55%,#3D8FDB_100%)] px-6 pb-14 pt-10 text-white sm:px-12 md:pb-16 md:pt-14">
+      <Reveal className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(120deg,#11294F_0%,#173B73_45%,#2864B4_100%)] px-6 pb-14 pt-10 text-white sm:px-12 md:pb-16 md:pt-14">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(255,255,255,0.18),transparent_45%)]" />
         <div className="relative grid items-center gap-10 md:grid-cols-[1.1fr_1fr] md:gap-14">
           <div>
@@ -173,8 +207,8 @@ export function QuoteBanner() {
           </div>
           <div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href={PRODUCTS.vsc.quoteHref} className="btn-primary flex-1 justify-center bg-line text-asphalt hover:bg-[#E3B21F]">Auto warranty quote</Link>
-              <Link href={PRODUCTS.home.quoteHref} className="btn-primary flex-1 justify-center bg-white text-asphalt hover:bg-white/90">Home warranty quote</Link>
+              <Link href={PRODUCTS.vsc.quoteHref} className="btn-primary flex-1 justify-center bg-line text-asphalt hover:bg-line-dark">Auto warranty quote</Link>
+              <Link href={PRODUCTS.home.quoteHref} className="btn-primary flex-1 justify-center bg-line text-asphalt hover:bg-line-dark">Home warranty quote</Link>
             </div>
             <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-white/90">
               {["Takes a few minutes", "Free, no obligation", "30-day money-back guarantee"].map((t) => (

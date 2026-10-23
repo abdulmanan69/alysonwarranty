@@ -60,5 +60,5 @@ export function Field({ label, children }: { label: string; children: ReactNode 
 }
 
 export const btn = "inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold transition";
-export const btnPrimary = `${btn} bg-asphalt text-white hover:bg-road`;
+export const btnPrimary = `${btn} bg-asphalt text-white hover:bg-navy`;
 export const btnSecondary = `${btn} border border-[#D0D5DD] bg-white text-asphalt hover:bg-[#F9FAFB]`;

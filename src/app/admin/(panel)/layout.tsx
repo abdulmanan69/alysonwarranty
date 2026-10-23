@@ -15,7 +15,7 @@ export default async function AdminPanelLayout({ children }: { children: React.R
     <div className="min-h-screen bg-[#F6F7F9] lg:grid lg:grid-cols-[248px_1fr] lg:bg-[linear-gradient(to_right,#101828_248px,#F6F7F9_248px)]">
       <aside className="hidden flex-col bg-[#101828] px-4 py-6 lg:sticky lg:top-0 lg:flex lg:h-screen">
         <Link href={home} className="flex items-center gap-3 px-2">
-          <img src="/brand/logo-mark.webp" alt="" width={400} height={270} className="h-8 w-auto rounded bg-white p-1" />
+          <img src="/brand/alyson-mark.webp" alt="" width={512} height={512} className="h-8 w-auto rounded bg-white p-1" />
           <span className="leading-tight">
             <span className="block text-sm font-bold text-white">{site.name}</span>
             <span className="block text-xs text-white/50">{role === "writer" ? "Blog" : "Lead management"}</span>

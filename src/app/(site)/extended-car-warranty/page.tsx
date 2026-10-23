@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero, QuoteBanner } from "@/components/sections";
+import { PageHero, PageHeroPhoto, PhotoChip, QuoteBanner } from "@/components/sections";
 import { ogMetadata } from "@/lib/og";
 import { VSC_DISCLOSURE } from "@/lib/products";
 import { jsonLd } from "@/lib/security";
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: PATH },
   ...ogMetadata(
-    { eyebrow: "Extended car warranty", title: "Plans, prices and what's covered", subtitle: "Powertrain to complete protection for the repairs that cost the most." },
+    { eyebrow: "Extended car warranty", title: "Plans, prices and what's covered", subtitle: "Powertrain to complete protection for the repairs that cost the most.", image: "/images/auto-warranty/mechanic-smiling-1024.webp" },
     { url: PATH, title: `Extended Car Warranty | ${site.name}`, description },
   ),
 };
@@ -96,9 +96,15 @@ export default async function ExtendedCarWarrantyPage() {
         title={title}
         intro="An extended car warranty helps pay for engine, transmission and other major repairs after your factory warranty ends. Here's how the plans differ, what they cost and what they don't cover."
         crumbs={[{ name: "Extended car warranty", href: PATH }]}
+        media={
+          <PageHeroPhoto base="/images/auto-warranty/mechanic-smiling" alt="Smiling mechanic working under the hood of a car in a repair shop">
+            <PhotoChip corner="top-right" icon="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z">Any licensed repair shop</PhotoChip>
+            <PhotoChip corner="bottom-left" icon="M20 6 9 17l-5-5">30-day money-back guarantee</PhotoChip>
+          </PageHeroPhoto>
+        }
       >
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/quote/auto-warranty" className="btn-primary bg-line text-asphalt hover:bg-[#E3B21F]">Get my free quote</Link>
+          <Link href="/quote/auto-warranty" className="btn-primary bg-line text-asphalt hover:bg-line-dark">Get my free quote</Link>
           <a href={biz.phoneHref} className="btn-secondary">Call {biz.phone}</a>
         </div>
       </PageHero>

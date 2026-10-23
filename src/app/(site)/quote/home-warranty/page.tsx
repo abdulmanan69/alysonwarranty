@@ -14,7 +14,7 @@ export const metadata = {
       eyebrow: "Home warranty",
       title: "Get a free quote for your home",
       subtitle: "Systems, appliances or both. Free quote, 30-day money-back guarantee.",
-      image: "/images/cta-home.webp",
+      image: "/images/home-hvac-technician.webp",
     },
     { url: "/quote/home-warranty", title: `Home Warranty Quote | ${site.name}` },
   ),

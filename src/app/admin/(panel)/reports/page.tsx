@@ -102,7 +102,7 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
             ))}
             <label className="text-road">From<input type="date" name="from" defaultValue={iso(range.gte)} className="ml-1.5 h-9 rounded-lg border border-[#D0D5DD] px-2" /></label>
             <label className="text-road">To<input type="date" name="to" defaultValue={iso(new Date(end.getTime() - DAY))} className="ml-1.5 h-9 rounded-lg border border-[#D0D5DD] px-2" /></label>
-            <button className="h-9 rounded-lg bg-asphalt px-3 font-semibold text-white hover:bg-road">Apply</button>
+            <button className="h-9 rounded-lg bg-asphalt px-3 font-semibold text-white hover:bg-navy">Apply</button>
           </form>
         }
       />

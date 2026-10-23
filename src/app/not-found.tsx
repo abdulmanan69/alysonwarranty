@@ -28,7 +28,7 @@ export default async function NotFound() {
                 The page you&apos;re looking for doesn&apos;t exist or has moved. Let&apos;s get you back on track.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/" className="btn-primary bg-line text-asphalt hover:bg-[#E3B21F]">
+                <Link href="/" className="btn-primary bg-line text-asphalt hover:bg-line-dark">
                   <svg aria-hidden width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" /></svg>
                   Back to home
                 </Link>
@@ -42,13 +42,13 @@ export default async function NotFound() {
 
             {/* Road illustration: a big 404 on an asphalt road with a closed-lane barrier. */}
             <div aria-hidden className="relative mx-auto w-full max-w-md">
-              <div className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(160deg,#2B3038_0%,#16181C_100%)] px-8 pb-10 pt-12 shadow-[0_30px_60px_-30px_rgba(16,24,40,0.6)]">
+              <div className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(160deg,#173B73_0%,#11294F_100%)] px-8 pb-10 pt-12 shadow-[0_30px_60px_-30px_rgba(16,24,40,0.6)]">
                 <p className="text-center text-[7rem] font-black leading-none tracking-tight text-white sm:text-[8.5rem]">
                   4<span className="text-line">0</span>4
                 </p>
                 <div className="mx-auto mt-6 flex w-4/5 items-center justify-center gap-2">
                   {Array.from({ length: 6 }, (_, i) => (
-                    <span key={i} className={`h-4 flex-1 rounded-sm ${i % 2 ? "bg-white" : "bg-[#FF7A00]"}`} />
+                    <span key={i} className={`h-4 flex-1 rounded-sm ${i % 2 ? "bg-white" : "bg-[#F28C28]"}`} />
                   ))}
                 </div>
                 <div className="mx-auto mt-1 flex w-3/5 justify-between">
@@ -66,7 +66,7 @@ export default async function NotFound() {
           <ul className="mt-4 grid gap-4 sm:grid-cols-3">
             {links.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="group block rounded-xl border border-rail p-5 transition hover:border-sky hover:shadow-[0_10px_30px_-15px_rgba(31,95,173,0.35)]">
+                <Link href={l.href} className="group block rounded-xl border border-rail p-5 transition hover:border-sky hover:shadow-[0_10px_30px_-15px_rgba(40,100,180,0.35)]">
                   <span className="flex items-center justify-between font-bold">
                     {l.label}
                     <svg aria-hidden width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-road transition group-hover:translate-x-0.5 group-hover:text-sky"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>

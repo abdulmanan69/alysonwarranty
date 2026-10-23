@@ -129,7 +129,7 @@ function Drawer({ open, onClose, links, phone, phoneHref, ctaLabel, ctaHref, sit
       >
         <div className="flex items-center justify-between border-b border-rail px-5 py-4">
           <Link href="/" onClick={onClose} aria-label={`${siteName} home`}>
-            <img src="/brand/logo.webp" alt={siteName} width={720} height={169} className="h-8 w-auto" />
+            <img src="/brand/alyson-logo.webp" alt={siteName} width={456} height={139} className="h-8 w-auto" />
           </Link>
           <button ref={closeBtn} type="button" onClick={onClose} aria-label="Close menu" className="grid h-10 w-10 place-items-center rounded-lg border border-rail text-asphalt">
             <svg aria-hidden width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M6 6l12 12M18 6 6 18" /></svg>
@@ -236,7 +236,7 @@ export function HeaderNav(props: Props) {
           </a>
         )}
         {ctaLabel && (
-          <Link href={ctaHref} className="hidden rounded-lg bg-line px-4 py-2.5 text-sm font-bold text-asphalt shadow-sm transition hover:bg-[#E3B21F] sm:inline-flex">
+          <Link href={ctaHref} className="hidden rounded-lg bg-line px-4 py-2.5 text-sm font-bold text-asphalt shadow-sm transition hover:bg-line-dark sm:inline-flex">
             {ctaLabel}
           </Link>
         )}

@@ -23,7 +23,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         alternateName: "AlysonWarranty",
         legalName: biz.agencyLegalName,
         url: `${site.url}/`,
-        logo: { "@type": "ImageObject", url: `${site.url}/brand/logo-512.png`, width: 512, height: 512 },
+        logo: { "@type": "ImageObject", url: `${site.url}/brand/alyson-logo-512.png`, width: 512, height: 512 },
         image: `${site.url}/opengraph-image`,
         description: site.description,
         telephone: phone,

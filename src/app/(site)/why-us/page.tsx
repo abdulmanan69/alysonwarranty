@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/why-us" },
-  ...ogMetadata({ eyebrow: "Why us", title, subtitle: description, image: "/images/why-us/car-warranty-agent-1024.webp" }, { url: "/why-us", title: `${title} | ${site.name}`, description }),
+  ...ogMetadata({ eyebrow: "Why us", title, subtitle: description, image: "/images/why-us/support-agent-1024.webp" }, { url: "/why-us", title: `${title} | ${site.name}`, description }),
 };
 
 const icon = (d: string) => (
@@ -45,7 +45,7 @@ function Tile({ children, className = "", tint = "blue" }: { children: ReactNode
   return <div className={`h-full rounded-[28px] p-2.5 ${bg} ${className}`}>{children}</div>;
 }
 const Panel = ({ children, className = "" }: { children: ReactNode; className?: string }) => (
-  <div className={`h-full rounded-[22px] bg-white p-6 shadow-[0_10px_30px_rgba(31,95,173,0.08)] sm:p-7 ${className}`}>{children}</div>
+  <div className={`h-full rounded-[22px] bg-white p-6 shadow-[0_10px_30px_rgba(40,100,180,0.08)] sm:p-7 ${className}`}>{children}</div>
 );
 
 export default async function WhyUsPage() {
@@ -61,12 +61,12 @@ export default async function WhyUsPage() {
         crumbs={[{ name: "Why us", href: "/why-us" }]}
         media={
           <div className="relative">
-            <div aria-hidden className="absolute -inset-4 rounded-[36px] bg-[radial-gradient(circle_at_20%_20%,rgba(31,95,173,0.18),transparent_55%),radial-gradient(circle_at_85%_90%,rgba(242,194,48,0.28),transparent_50%)] blur-2xl" />
+            <div aria-hidden className="absolute -inset-4 rounded-[36px] bg-[radial-gradient(circle_at_20%_20%,rgba(40,100,180,0.18),transparent_55%),radial-gradient(circle_at_85%_90%,rgba(242,140,40,0.28),transparent_50%)] blur-2xl" />
             <picture>
-              <source type="image/webp" srcSet="/images/why-us/car-warranty-agent-640.webp 640w, /images/why-us/car-warranty-agent-1024.webp 1024w, /images/why-us/car-warranty-agent-1600.webp 1600w" sizes="(min-width: 1024px) 560px, 100vw" />
+              <source type="image/webp" srcSet="/images/why-us/support-agent-640.webp 640w, /images/why-us/support-agent-1024.webp 1024w, /images/why-us/support-agent-1600.webp 1600w" sizes="(min-width: 1024px) 560px, 100vw" />
               <img
-                src="/images/why-us/car-warranty-agent-1024.webp"
-                alt={`${site.name} agent explaining vehicle service contract options to a couple at a car dealership`}
+                src="/images/why-us/support-agent-1024.webp"
+                alt="Smiling customer support advisor wearing a headset at her desk"
                 width={1600}
                 height={1067}
                 fetchPriority="high"
@@ -86,7 +86,7 @@ export default async function WhyUsPage() {
         }
       >
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/quote" className="btn-primary bg-line text-asphalt hover:bg-[#E3B21F]">Get my free quote</Link>
+          <Link href="/quote" className="btn-primary bg-line text-asphalt hover:bg-line-dark">Get my free quote</Link>
           <a href={biz.phoneHref} className="btn-secondary">Call {biz.phone}</a>
         </div>
       </PageHero>
@@ -166,14 +166,14 @@ export default async function WhyUsPage() {
           <Reveal delay={200} className="h-full">
             <Tile>
               <Panel className="flex flex-col items-center text-center">
-                <span aria-hidden className="grid h-20 w-20 place-items-center rounded-full bg-[radial-gradient(circle,#FFFFFF_0%,#EEF4FC_100%)] text-sky shadow-[0_10px_30px_rgba(31,95,173,0.15)]">
+                <span aria-hidden className="grid h-20 w-20 place-items-center rounded-full bg-[radial-gradient(circle,#FFFFFF_0%,#EEF4FC_100%)] text-sky shadow-[0_10px_30px_rgba(40,100,180,0.15)]">
                   <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" /></svg>
                 </span>
                 <h2 className="mt-6 text-xl font-bold text-asphalt">Real people, real answers</h2>
                 <p className="mt-2 leading-relaxed text-road">Talk to our team, who explain your options in plain English. No pressure, no obligation.</p>
                 <a href={biz.phoneHref} className="mt-6 text-2xl font-extrabold tracking-tight text-asphalt hover:text-sky">{biz.phone}</a>
                 <div className="mt-auto w-full pt-6">
-                  <Link href="/quote" className="btn-primary w-full bg-line text-asphalt hover:bg-[#E3B21F]">Get my free quote</Link>
+                  <Link href="/quote" className="btn-primary w-full bg-line text-asphalt hover:bg-line-dark">Get my free quote</Link>
                 </div>
               </Panel>
             </Tile>

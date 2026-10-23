@@ -17,7 +17,7 @@ export function NewKeyForm() {
           Key name
           <input name="name" required maxLength={60} placeholder="Claude blog writer" className={`${input} mt-1.5`} />
         </label>
-        <button disabled={pending} className="inline-flex h-10 items-center justify-center rounded-lg bg-asphalt px-4 text-sm font-semibold text-white hover:bg-road disabled:opacity-60">
+        <button disabled={pending} className="inline-flex h-10 items-center justify-center rounded-lg bg-asphalt px-4 text-sm font-semibold text-white hover:bg-navy disabled:opacity-60">
           {pending ? "Creating…" : "Create key"}
         </button>
       </div>

@@ -45,7 +45,7 @@ export function CreateUserForm({ roles }: { roles: [string, string][] }) {
             {roles.map(([k, l]) => <option key={k} value={k}>{l}</option>)}
           </select>
         </label>
-        <button disabled={pending} className="h-10 rounded-lg bg-asphalt px-4 text-sm font-semibold text-white hover:bg-road disabled:opacity-60">
+        <button disabled={pending} className="h-10 rounded-lg bg-asphalt px-4 text-sm font-semibold text-white hover:bg-navy disabled:opacity-60">
           {pending ? "Adding…" : "Add user"}
         </button>
       </div>

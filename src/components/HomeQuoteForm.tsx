@@ -142,7 +142,7 @@ export function HomeQuoteForm({ initialZip = "", consentText, consentVersion, ph
 
   if (submitting) {
     return (
-      <div className="mx-auto max-w-xl rounded-2xl border border-rail bg-white px-6 py-16 text-center shadow-[0_20px_50px_-20px_rgba(38,42,48,0.18)]" role="status" aria-live="polite">
+      <div className="mx-auto max-w-xl rounded-2xl border border-rail bg-white px-6 py-16 text-center shadow-[0_20px_50px_-20px_rgba(17,41,79,0.18)]" role="status" aria-live="polite">
         <span aria-hidden className="mx-auto block h-14 w-14 animate-spin rounded-full border-4 border-sky/15 border-t-sky" />
         <h2 className="mt-8 text-2xl font-bold">Sending your details</h2>
         <p className="mt-2 text-road">This usually takes a few seconds. Please don&apos;t close this page.</p>
@@ -161,7 +161,7 @@ export function HomeQuoteForm({ initialZip = "", consentText, consentVersion, ph
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-rail bg-white shadow-[0_20px_50px_-24px_rgba(38,42,48,0.2)]">
+      <div className="overflow-hidden rounded-2xl border border-rail bg-white shadow-[0_20px_50px_-24px_rgba(17,41,79,0.2)]">
         <div className="border-b border-rail px-6 pb-5 pt-6 sm:px-10">
           <div className="flex items-center justify-between text-sm">
             <span className="font-semibold text-sky">
@@ -171,7 +171,7 @@ export function HomeQuoteForm({ initialZip = "", consentText, consentVersion, ph
             <span className="font-medium text-road">{progress}% complete</span>
           </div>
           <div className="mt-3 h-2 overflow-hidden rounded-full bg-[#EDF0F3]" role="progressbar" aria-label="Quote progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progress}>
-            <div className="h-full rounded-full bg-gradient-to-r from-sky to-[#3D8FDB] transition-[width] duration-500 ease-out" style={{ width: `${progress}%` }} />
+            <div className="h-full rounded-full bg-gradient-to-r from-sky to-[#4A86D0] transition-[width] duration-500 ease-out" style={{ width: `${progress}%` }} />
           </div>
         </div>
 
@@ -295,11 +295,11 @@ export function HomeQuoteForm({ initialZip = "", consentText, consentVersion, ph
             <span className="hidden sm:block" />
           )}
           {isLast ? (
-            <button key="submit" type="submit" className="btn-primary bg-line text-asphalt hover:bg-[#E3B21F] sm:min-w-52">
+            <button key="submit" type="submit" className="btn-primary bg-line text-asphalt hover:bg-line-dark sm:min-w-52">
               Get my free quote <Arrow dir="right" />
             </button>
           ) : (
-            <button key="next" type="button" onClick={next} className="btn-primary bg-line text-asphalt hover:bg-[#E3B21F] sm:min-w-44">
+            <button key="next" type="button" onClick={next} className="btn-primary bg-line text-asphalt hover:bg-line-dark sm:min-w-44">
               Continue <Arrow dir="right" />
             </button>
           )}
@@ -339,7 +339,7 @@ export function HomeQuoteForm({ initialZip = "", consentText, consentVersion, ph
           </ol>
         </div>
 
-        <div className="rounded-2xl bg-[linear-gradient(135deg,#0B2F5B_0%,#1F5FAD_100%)] p-6 text-white">
+        <div className="rounded-2xl bg-[linear-gradient(135deg,#11294F_0%,#2864B4_100%)] p-6 text-white">
           <p className="text-lg font-bold">Prefer to talk to someone?</p>
           <p className="mt-1.5 text-sm leading-relaxed text-white/80">Our team can explain plan options and prices by phone.</p>
           <a href={phoneHref} className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 font-semibold text-asphalt transition hover:bg-white/90">

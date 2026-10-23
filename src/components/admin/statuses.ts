@@ -19,7 +19,7 @@ export const STATUS_STYLES: Record<string, string> = {
 // Colours for the status bar on the dashboard.
 export const STATUS_COLORS: Record<string, string> = {
   new: "#94A3B8",
-  quoted: "#1F5FAD",
+  quoted: "#2864B4",
   agent_followup: "#F59E0B",
   sold_lead: "#7C3AED",
   bound: "#10B981",

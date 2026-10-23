@@ -47,7 +47,7 @@ export default async function ActivityPage({ searchParams }: { searchParams: Pro
             <input type="checkbox" name="errors" value="1" defaultChecked={errorsOnly} className="h-4 w-4 accent-sky" />
             Errors and failed sign-ins only
           </label>
-          <button className="h-9 rounded-lg bg-asphalt px-3 font-semibold text-white hover:bg-road">Filter</button>
+          <button className="h-9 rounded-lg bg-asphalt px-3 font-semibold text-white hover:bg-navy">Filter</button>
           {(sp.actor || errorsOnly) && <Link href="/admin/activity" className="h-9 rounded-lg border border-[#D0D5DD] px-3 py-1.5 font-semibold">Clear</Link>}
         </form>
         <ul className="divide-y divide-[#EEF0F3]">

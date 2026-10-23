@@ -28,7 +28,7 @@ export function MediaUpload() {
   return (
     <div className="flex items-center gap-3">
       {error && <span role="alert" className="text-sm font-medium text-red-700">{error}</span>}
-      <button type="button" disabled={busy} onClick={() => input.current?.click()} className="inline-flex items-center gap-2 rounded-lg bg-asphalt px-3.5 py-2 text-sm font-semibold text-white hover:bg-road disabled:opacity-60">
+      <button type="button" disabled={busy} onClick={() => input.current?.click()} className="inline-flex items-center gap-2 rounded-lg bg-asphalt px-3.5 py-2 text-sm font-semibold text-white hover:bg-navy disabled:opacity-60">
         {busy ? "Uploading…" : "+ Upload images"}
       </button>
       <input ref={input} type="file" accept="image/*" multiple className="hidden" onChange={(e) => void upload(e.target.files)} />

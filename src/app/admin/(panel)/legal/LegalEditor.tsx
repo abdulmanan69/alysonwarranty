@@ -72,7 +72,7 @@ export function LegalEditor({ initial, templates, defaults }: { initial: LegalSe
         <span className="text-xs text-road">{saving ? "Saving…" : dirty ? "Unsaved changes" : ""}</span>
         <div className="ml-auto flex gap-2">
           <a href={tab === "terms" ? "/terms" : tab === "settings" ? "/do-not-sell" : "/privacy"} target="_blank" rel="noreferrer" className="rounded-lg border border-[#D0D5DD] bg-white px-3.5 py-2 text-sm font-semibold hover:bg-[#F9FAFB]">View page ↗</a>
-          <button type="button" onClick={() => void save()} disabled={saving || !dirty} className="rounded-lg bg-asphalt px-4 py-2 text-sm font-semibold text-white hover:bg-road disabled:opacity-50">Save</button>
+          <button type="button" onClick={() => void save()} disabled={saving || !dirty} className="rounded-lg bg-asphalt px-4 py-2 text-sm font-semibold text-white hover:bg-navy disabled:opacity-50">Save</button>
         </div>
       </div>
 

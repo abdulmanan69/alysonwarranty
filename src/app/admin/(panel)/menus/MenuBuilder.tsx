@@ -148,7 +148,7 @@ function AddLink({ options, onAdd, disabled, label = "Add link" }: { options: Li
           setHref("");
           setText("");
         }}
-        className="h-9 rounded-lg bg-asphalt px-3 text-sm font-semibold text-white hover:bg-road disabled:opacity-40"
+        className="h-9 rounded-lg bg-asphalt px-3 text-sm font-semibold text-white hover:bg-navy disabled:opacity-40"
       >
         + {label}
       </button>
@@ -224,7 +224,7 @@ export function MenuBuilder({ initial, options }: { initial: NavigationSettings;
         <span className="text-sm text-road">{saving ? "Saving…" : dirty ? "Unsaved changes" : "All changes saved"}</span>
         <div className="ml-auto flex gap-2">
           <a href="/" target="_blank" rel="noreferrer" className="rounded-lg border border-[#D0D5DD] bg-white px-3.5 py-2 text-sm font-semibold hover:bg-[#F9FAFB]">View site ↗</a>
-          <button type="button" onClick={() => void save()} disabled={saving || !dirty} className="rounded-lg bg-asphalt px-4 py-2 text-sm font-semibold text-white hover:bg-road disabled:opacity-50">
+          <button type="button" onClick={() => void save()} disabled={saving || !dirty} className="rounded-lg bg-asphalt px-4 py-2 text-sm font-semibold text-white hover:bg-navy disabled:opacity-50">
             {saving ? "Saving…" : "Save menus"}
           </button>
         </div>

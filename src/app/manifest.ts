@@ -9,11 +9,11 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/",
     display: "browser",
     background_color: "#FFFFFF",
-    theme_color: "#262A30",
+    theme_color: "#173B73",
     icons: [
       { src: "/icon.png", sizes: "64x64", type: "image/png", purpose: "any" },
-      { src: "/brand/logo-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
-      { src: "/brand/logo-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+      { src: "/brand/alyson-logo-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+      { src: "/brand/alyson-logo-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
       { src: "/apple-icon.png", sizes: "180x180", type: "image/png" },
     ],
   };

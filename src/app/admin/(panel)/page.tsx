@@ -131,7 +131,7 @@ export default async function AdminDashboard() {
             {series.map((s, i) => {
               const h = s.n ? Math.max(4, (s.n / max) * 140) : 2;
               return (
-                <rect key={s.key} x={i * 20 + 3} y={150 - h} width="14" height={h} rx="3" fill={s.n ? "#1F5FAD" : "#E4E7EC"}>
+                <rect key={s.key} x={i * 20 + 3} y={150 - h} width="14" height={h} rx="3" fill={s.n ? "#2864B4" : "#E4E7EC"}>
                   <title>{`${shortDate(s.date)}: ${s.n} lead${s.n === 1 ? "" : "s"}`}</title>
                 </rect>
               );

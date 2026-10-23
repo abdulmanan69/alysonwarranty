@@ -184,7 +184,7 @@ export async function CustomerReviews() {
         {award && (
           <Reveal delay={150} className="mt-12 text-center">
             <p className="text-xl font-bold uppercase tracking-wide sm:text-2xl">{award.text}</p>
-            <a href={award.url} target="_blank" rel="noreferrer" className="btn-primary mt-5 inline-flex bg-line text-asphalt hover:bg-[#E3B21F]">
+            <a href={award.url} target="_blank" rel="noreferrer" className="btn-primary mt-5 inline-flex bg-line text-asphalt hover:bg-line-dark">
               Read the review
             </a>
           </Reveal>

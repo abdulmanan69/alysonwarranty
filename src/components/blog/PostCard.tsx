@@ -18,7 +18,7 @@ function Cover({ post, className, priority }: { post: PostCardData; className: s
   }
   // No cover: a branded panel with the category, so the grid still looks finished.
   return (
-    <div className={`${className} grid place-items-center bg-[linear-gradient(135deg,#262A30_0%,#3A4049_60%,#1F5FAD_140%)] p-6`}>
+    <div className={`${className} grid place-items-center bg-[linear-gradient(135deg,#173B73_0%,#173B73_60%,#2864B4_140%)] p-6`}>
       <span className="text-center text-sm font-bold uppercase tracking-[0.16em] text-line">{post.category?.name ?? "Alyson Warranty"}</span>
     </div>
   );
@@ -39,7 +39,7 @@ function Meta({ post }: { post: PostCardData }) {
 
 export function PostCard({ post }: { post: PostCardData }) {
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-rail bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(38,42,48,0.10)]">
+    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-rail bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(17,41,79,0.10)]">
       <div className="overflow-hidden">
         <Cover post={post} className="aspect-[16/9] w-full" />
       </div>
@@ -59,7 +59,7 @@ export function PostCard({ post }: { post: PostCardData }) {
 
 export function FeaturedPostCard({ post }: { post: PostCardData }) {
   return (
-    <article className="group relative grid overflow-hidden rounded-3xl border border-rail bg-white transition hover:shadow-[0_16px_40px_rgba(38,42,48,0.10)] lg:grid-cols-[1.25fr_1fr]">
+    <article className="group relative grid overflow-hidden rounded-3xl border border-rail bg-white transition hover:shadow-[0_16px_40px_rgba(17,41,79,0.10)] lg:grid-cols-[1.25fr_1fr]">
       <div className="overflow-hidden">
         <Cover post={post} className="aspect-[16/9] h-full w-full lg:aspect-auto lg:min-h-[340px]" priority />
       </div>

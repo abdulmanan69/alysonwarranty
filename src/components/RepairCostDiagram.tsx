@@ -72,8 +72,8 @@ export function RepairCostDiagram({ costs = {} }: { costs?: Record<string, strin
               style={{ left: `${p.x}%`, top: `${p.y}%` }}
               className={`absolute grid h-6 w-6 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 transition duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky sm:h-8 sm:w-8 ${
                 active
-                  ? "z-10 border-[#F28C28] bg-white text-[#F28C28]"
-                  : "border-transparent bg-[#1D4A5C] text-white shadow-[0_0_0_4px_rgba(29,74,92,0.2)]"
+                  ? "z-10 border-line bg-white text-line"
+                  : "border-transparent bg-navy text-white shadow-[0_0_0_4px_rgba(23,59,115,0.2)]"
               }`}
             >
               <svg aria-hidden width="18" height="18" viewBox="0 0 24 24" fill="none" className="max-sm:h-3.5 max-sm:w-3.5">

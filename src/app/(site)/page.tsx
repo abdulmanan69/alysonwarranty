@@ -10,6 +10,22 @@ const icon = (d: string) => (
   <svg aria-hidden width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>
 );
 
+/** Product section photo: rounded, with a tinted card offset behind it and a small label on top. */
+function ProductPhoto({ src, alt, tint, badge, badgeIcon, left = false }: { src: string; alt: string; tint: string; badge: string; badgeIcon: string; left?: boolean }) {
+  return (
+    <div className="relative mx-auto max-w-md md:max-w-none">
+      <div aria-hidden className={`absolute inset-0 rounded-[2rem] ${tint} ${left ? "-translate-x-3 translate-y-3 md:-translate-x-5 md:translate-y-5" : "translate-x-3 translate-y-3 md:translate-x-5 md:translate-y-5"}`} />
+      <img src={src} alt={alt} width={1200} height={900} loading="lazy" decoding="async" className="relative block aspect-[4/3] w-full rounded-[2rem] object-cover shadow-[0_24px_60px_-28px_rgba(17,41,79,0.45)]" />
+      <span className={`absolute -bottom-4 flex items-center gap-2 whitespace-nowrap rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-asphalt shadow-[0_12px_30px_rgba(17,41,79,0.18)] ${left ? "right-4 sm:right-6" : "left-4 sm:left-6"}`}>
+        <span aria-hidden className="grid h-7 w-7 place-items-center rounded-full bg-navy text-line">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d={badgeIcon} /></svg>
+        </span>
+        {badge}
+      </span>
+    </div>
+  );
+}
+
 // The two ways in. Each card goes straight to its own quote form.
 const PATHS = [
   {
@@ -38,11 +54,13 @@ export default async function Home() {
 
   return (
     <>
-      <section className="relative isolate min-h-[590px] overflow-hidden bg-asphalt text-white sm:min-h-[620px]">
+      <section className="relative isolate min-h-[590px] overflow-hidden bg-[radial-gradient(circle_at_12%_18%,rgba(40,100,180,0.45),transparent_55%),linear-gradient(135deg,#11294F_0%,#173B73_100%)] text-white sm:min-h-[620px]">
         <HeroSlides />
-        <div aria-hidden className="absolute inset-0 -z-10 bg-asphalt/65" />
+        {/* Deep blue wash over the photo behind the text (phones and tablets only; on large screens
+            the photo sits to the right of the text). */}
+        <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(17,41,79,0.84)_0%,rgba(17,41,79,0.7)_55%,rgba(17,41,79,0.55)_100%)] lg:hidden" />
         <div className="mx-auto flex min-h-[590px] max-w-6xl items-center px-5 py-16 sm:min-h-[620px] md:py-20">
-          <div className="w-full max-w-3xl">
+          <div className="w-full max-w-3xl lg:max-w-[540px] xl:max-w-[600px]">
             <p className="hero-rise mb-5 text-sm font-bold uppercase tracking-[0.14em] text-line">{fillCompany(content.hero.eyebrow)}</p>
             <h1 style={{ animationDelay: "80ms" }} className="hero-rise max-w-2xl text-4xl font-bold leading-[1.08] sm:text-5xl md:text-[3.5rem]">
               {fillCompany(content.hero.title)}
@@ -69,7 +87,7 @@ export default async function Home() {
                       </li>
                     ))}
                   </ul>
-                  <span className="mt-4 inline-flex items-center gap-2 rounded-lg bg-line px-4 py-2.5 text-sm font-bold text-asphalt transition group-hover:bg-[#E3B21F]">
+                  <span className="mt-4 inline-flex items-center gap-2 rounded-lg bg-line px-4 py-2.5 text-sm font-bold text-asphalt transition group-hover:bg-line-dark">
                     {p.cta}
                     <svg aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                   </span>
@@ -100,7 +118,7 @@ export default async function Home() {
               An auto warranty through {site.name} can help protect your budget from expensive car repair surprises. Our team shows you plan options and prices for your car, backed by a 30-day money-back guarantee.
             </p>
             <p className="mx-auto mt-4 max-w-md text-sm text-road/80 md:mx-0">*A deductible may apply. {VSC_DISCLOSURE}</p>
-            <a href={PRODUCTS.vsc.quoteHref} className="btn-primary mt-7 inline-flex bg-line uppercase tracking-wide text-asphalt hover:bg-[#E3B21F]">
+            <a href={PRODUCTS.vsc.quoteHref} className="btn-primary mt-7 inline-flex bg-line uppercase tracking-wide text-asphalt hover:bg-line-dark">
               Get my free auto quote
             </a>
             <a href={PRODUCTS.vsc.guideHref} className="mt-4 block text-sm font-semibold text-sky hover:underline md:inline-block md:ml-5 md:mt-0">
@@ -108,7 +126,13 @@ export default async function Home() {
             </a>
           </Reveal>
           <Reveal from="pop" delay={150} className="order-first md:order-2">
-            <img src="/images/cta-car.webp" alt="" aria-hidden="true" width={1200} height={831} loading="lazy" decoding="async" className="mx-auto block h-auto w-full max-w-md md:max-w-none" />
+            <ProductPhoto
+              src="/images/auto-mechanic-tablet.webp"
+              alt="Mechanic checking a car engine with a diagnostic tablet"
+              tint="bg-sky/15"
+              badge="Use any licensed repair shop"
+              badgeIcon="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"
+            />
           </Reveal>
         </div>
       </section>
@@ -117,7 +141,14 @@ export default async function Home() {
       <section className="bg-mist">
         <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-14 text-center md:grid-cols-[1.15fr_1fr] md:gap-12 md:py-16 md:text-left">
           <Reveal from="pop" delay={150} className="order-first">
-            <img src="/images/cta-home.webp" alt="" aria-hidden="true" width={1200} height={831} loading="lazy" decoding="async" className="mx-auto block h-auto w-full max-w-md rounded-[2rem] object-cover md:max-w-none" />
+            <ProductPhoto
+              src="/images/home-hvac-technician.webp"
+              alt="Technician inspecting a home's outdoor air conditioning unit"
+              tint="bg-line/20"
+              badge="One service call fee per visit"
+              badgeIcon="M3 11 12 3l9 8M5 10v10h14V10M10 20v-6h4v6"
+              left
+            />
           </Reveal>
           <Reveal>
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-sky">{PRODUCTS.home.label}</p>
@@ -128,7 +159,7 @@ export default async function Home() {
               A home warranty through {site.name} helps pay to repair or replace your heating, air conditioning, plumbing, electrical and kitchen appliances when they fail from normal wear. One service call fee per visit, and our team explains every plan in plain English.
             </p>
             <p className="mx-auto mt-4 max-w-md text-sm text-road/80 md:mx-0">{HOME_DISCLOSURE}</p>
-            <a href={PRODUCTS.home.quoteHref} className="btn-primary mt-7 inline-flex bg-line uppercase tracking-wide text-asphalt hover:bg-[#E3B21F]">
+            <a href={PRODUCTS.home.quoteHref} className="btn-primary mt-7 inline-flex bg-line uppercase tracking-wide text-asphalt hover:bg-line-dark">
               Get my free home quote
             </a>
             <a href={PRODUCTS.home.guideHref} className="mt-4 block text-sm font-semibold text-sky hover:underline md:inline-block md:ml-5 md:mt-0">
@@ -139,18 +170,26 @@ export default async function Home() {
       </section>
 
       <section className="bg-white px-5 pb-14 pt-6 md:pb-20 md:pt-24">
-        <div className="relative mx-auto grid max-w-6xl items-center gap-6 overflow-hidden rounded-[2rem] bg-[linear-gradient(120deg,#0B2F5B_0%,#1F5FAD_55%,#3D8FDB_100%)] px-6 pb-10 pt-8 text-center text-white md:grid-cols-[0.9fr_1.1fr] md:gap-10 md:overflow-visible md:px-12 md:py-14 md:text-left">
-          <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_85%_15%,rgba(255,255,255,0.18),transparent_45%)]" />
-          <Reveal from="left" className="relative md:-my-28">
-            <img
-              src="/images/reviews-phone.webp"
-              alt={`Customer reviews of ${site.name} shown on a phone.`}
-              width={663}
-              height={1013}
-              loading="lazy"
-              decoding="async"
-              className="mx-auto block h-auto w-56 cursor-pointer drop-shadow-2xl transition duration-500 ease-out hover:-translate-y-4 hover:-rotate-2 hover:scale-105 hover:drop-shadow-[0_35px_45px_rgba(0,0,0,0.45)] sm:w-64 md:w-full md:max-w-[360px]"
-            />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-8 overflow-hidden rounded-[2rem] bg-[linear-gradient(120deg,#11294F_0%,#173B73_45%,#2864B4_100%)] px-6 pb-10 pt-8 text-center text-white md:grid-cols-[0.95fr_1.05fr] md:gap-12 md:overflow-visible md:px-12 md:py-14 md:text-left">
+          <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_85%_15%,rgba(255,255,255,0.16),transparent_45%)]" />
+          <Reveal from="left" className="relative md:-my-24">
+            <div className="relative mx-auto max-w-sm md:max-w-none">
+              <img
+                src="/images/customer-on-phone.webp"
+                alt="Smiling homeowner on a phone call at her kitchen table"
+                width={1200}
+                height={900}
+                loading="lazy"
+                decoding="async"
+                className="block aspect-[4/3] w-full rounded-[1.75rem] object-cover shadow-[0_30px_60px_-20px_rgba(0,0,0,0.55)] ring-4 ring-white/15 transition duration-500 ease-out hover:-translate-y-2 hover:-rotate-1"
+              />
+              <span className="absolute -bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-asphalt shadow-[0_12px_30px_rgba(16,24,40,0.25)] md:left-6 md:translate-x-0">
+                <span aria-hidden className="grid h-7 w-7 place-items-center rounded-full bg-line text-asphalt">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" /></svg>
+                </span>
+                Real people pick up the phone
+              </span>
+            </div>
           </Reveal>
           <Reveal delay={200} className="relative">
             <h2 className="text-3xl font-extrabold leading-tight sm:text-4xl">Our Reputation Speaks for Itself</h2>
@@ -181,7 +220,7 @@ export default async function Home() {
                 })}
               </ul>
             )}
-            <a href="/quote" className="btn-primary mt-8 inline-flex bg-line uppercase tracking-wide text-asphalt hover:bg-[#E3B21F]">
+            <a href="/quote" className="btn-primary mt-8 inline-flex bg-line uppercase tracking-wide text-asphalt hover:bg-line-dark">
               Get a free quote
             </a>
           </Reveal>

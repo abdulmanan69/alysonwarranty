@@ -117,7 +117,7 @@ export function ImagePicker({ open, onClose, onPick, askAlt = true, title = "Add
           )}
           <div className="flex justify-end gap-2">
             <button type="button" onClick={() => setPicked(null)} className="rounded-lg border border-[#D0D5DD] px-3.5 py-2 text-sm font-semibold">Back</button>
-            <button type="button" onClick={() => finish(picked, alt)} className="rounded-lg bg-asphalt px-3.5 py-2 text-sm font-semibold text-white hover:bg-road">Use this image</button>
+            <button type="button" onClick={() => finish(picked, alt)} className="rounded-lg bg-asphalt px-3.5 py-2 text-sm font-semibold text-white hover:bg-navy">Use this image</button>
           </div>
         </div>
       ) : (
@@ -147,7 +147,7 @@ export function ImagePicker({ open, onClose, onPick, askAlt = true, title = "Add
               <svg aria-hidden width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-road/60"><path d="M3 15v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4M17 8l-5-5-5 5M12 3v12" /></svg>
               <p className="mt-3 font-semibold">{busy ? "Uploading…" : "Drop an image here"}</p>
               <p className="mt-1 text-sm text-road">JPG, PNG, WebP or AVIF, up to 10 MB. It is resized and compressed for you.</p>
-              <button type="button" disabled={busy} onClick={() => input.current?.click()} className="mt-4 rounded-lg bg-asphalt px-4 py-2 text-sm font-semibold text-white hover:bg-road disabled:opacity-60">
+              <button type="button" disabled={busy} onClick={() => input.current?.click()} className="mt-4 rounded-lg bg-asphalt px-4 py-2 text-sm font-semibold text-white hover:bg-navy disabled:opacity-60">
                 Choose a file
               </button>
               <input ref={input} type="file" accept="image/*" className="hidden" onChange={(e) => void handleFiles(e.target.files)} />

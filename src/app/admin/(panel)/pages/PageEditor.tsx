@@ -108,7 +108,7 @@ export function PageEditor({ page, siteUrl }: { page: EditorPage; siteUrl: strin
           {!live && (
             <button type="button" onClick={() => void save("draft")} disabled={saving} className="rounded-lg border border-[#D0D5DD] bg-white px-3.5 py-2 text-sm font-semibold hover:bg-[#F9FAFB] disabled:opacity-60">Save draft</button>
           )}
-          <button type="button" onClick={() => void save("published")} disabled={saving} className="rounded-lg bg-asphalt px-4 py-2 text-sm font-semibold text-white hover:bg-road disabled:opacity-60">
+          <button type="button" onClick={() => void save("published")} disabled={saving} className="rounded-lg bg-asphalt px-4 py-2 text-sm font-semibold text-white hover:bg-navy disabled:opacity-60">
             {live ? "Update" : "Publish"}
           </button>
         </div>

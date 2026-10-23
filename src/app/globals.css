@@ -6,7 +6,7 @@
   html { -webkit-text-size-adjust: 100%; }
   body { @apply bg-white text-asphalt antialiased; font-family: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-feature-settings: "kern", "liga"; }
   h1, h2, h3 { @apply tracking-tight; }
-  :focus-visible { outline: 3px solid #1F5FAD; outline-offset: 2px; }
+  :focus-visible { outline: 3px solid #2864B4; outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
   }
@@ -17,28 +17,29 @@
   .hint { @apply mt-1.5 text-sm text-road/80; }
   .error { @apply mt-1.5 flex items-center gap-1.5 text-sm font-medium text-red-600; }
   .input {
-    @apply block h-12 w-full rounded-lg border border-rail bg-white px-4 text-[15px] text-asphalt shadow-[0_1px_2px_rgba(38,42,48,0.04)]
+    @apply block h-12 w-full rounded-lg border border-rail bg-white px-4 text-[15px] text-asphalt shadow-[0_1px_2px_rgba(17,41,79,0.04)]
       placeholder:text-road/45 transition hover:border-road/40 focus:border-sky focus:outline-none focus:ring-4 focus:ring-sky/15
-      disabled:cursor-not-allowed disabled:bg-[#F7F8FA] disabled:text-road/60;
+      disabled:cursor-not-allowed disabled:bg-mist disabled:text-road/60;
   }
   select.input {
     @apply cursor-pointer appearance-none bg-no-repeat pr-11;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%233A4049' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
     background-position: right 0.9rem center;
   }
   .input[aria-invalid="true"] { @apply border-red-500 focus:ring-red-500/15; }
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-asphalt px-6 py-3.5 text-base font-semibold text-white
-      transition hover:bg-road disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-navy px-6 py-3.5 text-base font-semibold text-white
+      transition hover:bg-sky disabled:cursor-not-allowed disabled:opacity-60;
   }
+  /* Secondary actions: royal blue outline. */
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-rail bg-white px-5 py-3.5 text-base font-semibold text-asphalt
-      transition hover:border-road/40 hover:bg-[#F7F8FA];
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border-2 border-sky bg-white px-5 py-3 text-base font-semibold text-sky
+      transition hover:bg-sky hover:text-white;
   }
   .btn-quiet { @apply inline-flex items-center justify-center rounded-md px-4 py-3 text-base font-semibold text-road hover:text-asphalt; }
   .choice {
     @apply flex min-h-12 cursor-pointer items-center gap-3 rounded-lg border border-rail bg-white px-4 py-3 text-[15px] font-medium
-      shadow-[0_1px_2px_rgba(38,42,48,0.04)] transition hover:border-road/40;
+      shadow-[0_1px_2px_rgba(17,41,79,0.04)] transition hover:border-road/40;
   }
   .choice:has(input:checked) { @apply border-sky bg-sky/[0.05] ring-1 ring-sky; }
   .choice:has(input:focus-visible) { @apply ring-4 ring-sky/20; }
@@ -48,7 +49,7 @@
   .choice input:checked { @apply border-sky bg-sky; box-shadow: inset 0 0 0 3px #fff; }
   .choice input:focus-visible { outline: none; }
   .step-in { animation: step-in 0.35s ease-out both; }
-  .lane { background-image: repeating-linear-gradient(90deg, #F2C230 0 28px, transparent 28px 44px); }
+  .lane { background-image: repeating-linear-gradient(90deg, #F28C28 0 28px, transparent 28px 44px); }
   /* Home hero: the photo that is showing zooms and drifts slowly, then crossfades (HeroSlides.tsx).
      A slide that fades out keeps its zoom until it is hidden, then resets. */
   .hero-slide {
@@ -85,7 +86,7 @@
   from { opacity: 0; transform: translate3d(0, 22px, 0); }
   to { opacity: 1; transform: none; }
 }
-/* The yellow lane stripe under the hero slides left, like road markings passing by. */
+/* The orange lane stripe under the hero slides left, like road markings passing by. */
 @keyframes lane-move {
   to { background-position-x: -44px; }
 }
@@ -105,7 +106,7 @@
 .sidebar-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.32); }
 
 /* Blog article text: used on the public post page and inside the admin editor (same look). */
-.post-content { @apply text-[17px] leading-[1.75] text-[#2F343B]; overflow-wrap: anywhere; }
+.post-content { @apply text-[17px] leading-[1.75] text-[#334155]; overflow-wrap: anywhere; }
 .post-content > * + * { margin-top: 1.25em; }
 .post-content h2 { @apply mt-12 scroll-mt-24 text-[1.65rem] font-extrabold leading-tight text-asphalt; }
 .post-content h3 { @apply mt-9 scroll-mt-24 text-[1.3rem] font-bold leading-snug text-asphalt; }
@@ -119,7 +120,7 @@
 .post-content li + li { margin-top: 0.45em; }
 .post-content li > p { margin: 0; }
 .post-content li::marker { @apply text-road/70; }
-.post-content blockquote { @apply border-l-4 border-line bg-[#FFFBEB] py-3 pl-5 pr-4 text-[1.05em] italic text-asphalt; }
+.post-content blockquote { @apply border-l-4 border-line bg-[#FFF5EB] py-3 pl-5 pr-4 text-[1.05em] italic text-asphalt; }
 .post-content blockquote p { margin: 0; }
 .post-content code { @apply rounded bg-[#F1F3F5] px-1.5 py-0.5 font-mono text-[0.88em] text-[#B42318]; }
 .post-content pre { @apply overflow-x-auto rounded-xl bg-[#101828] p-5 text-sm leading-relaxed text-[#E4E7EC]; }
@@ -129,7 +130,7 @@
 .post-content table { @apply w-full border-collapse text-[15px]; }
 @media (max-width: 640px) { .post-content table { display: block; overflow-x: auto; } }
 .post-content th, .post-content td { @apply border border-rail px-3.5 py-2.5 text-left align-top; }
-.post-content th { @apply bg-[#F6F7F9] font-semibold text-asphalt; }
+.post-content th { @apply bg-mist font-semibold text-asphalt; }
 .post-content th p, .post-content td p { margin: 0; }
 .post-content div[data-youtube-video] { @apply relative overflow-hidden rounded-xl bg-black; aspect-ratio: 16 / 9; }
 .post-content div[data-youtube-video] iframe { @apply absolute inset-0 h-full w-full; }

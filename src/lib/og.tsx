@@ -15,7 +15,7 @@ import { site } from "./site";
  *   {subtitle}  one supporting line
  *   {price}     optional highlight, e.g. "$89/mo"
  *   {priceNote} small text next to the price, e.g. "Average savings"
- *   {image}     optional picture from /public/images or /public/brand, e.g. "/images/cta-car.webp"
+ *   {image}     optional picture from /public/images or /public/brand, e.g. "/images/auto-mechanic-tablet.webp"
  */
 export type OgVars = {
   eyebrow?: string;
@@ -109,9 +109,9 @@ async function loadPublicImage(path: string, maxW: number, maxH: number) {
 export async function renderOg(input: OgVars) {
   const v = cleanOgVars(input);
   const [logo, picture, mark, fonts] = await Promise.all([
-    publicImage("/brand/logo.png", 360, 84),
+    publicImage("/brand/alyson-logo.png", 360, 84),
     v.image ? publicImage(v.image, 440, 380) : Promise.resolve(null),
-    v.image ? Promise.resolve(null) : publicImage("/brand/logo-mark.png", 620, 420),
+    v.image ? Promise.resolve(null) : publicImage("/brand/alyson-mark.png", 620, 420),
     // The eyebrow is shown in capitals, so its uppercase letters are needed too.
     loadInter([400, 700, 800], `${KEYS.map((k) => v[k] ?? "").join("")}${(v.eyebrow ?? "").toUpperCase()}${site.name}`),
   ]);
@@ -126,24 +126,24 @@ export async function renderOg(input: OgVars) {
           {logo ? <img src={logo.src} width={logo.width} height={logo.height} /> : <div style={{ fontSize: 36, fontWeight: 800 }}>{site.name}</div>}
           <div style={{ display: "flex", flexDirection: "column" }}>
             {v.eyebrow && (
-              <div style={{ fontSize: 24, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase", color: "#1F5FAD", marginBottom: 14 }}>{v.eyebrow}</div>
+              <div style={{ fontSize: 24, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase", color: "#2864B4", marginBottom: 14 }}>{v.eyebrow}</div>
             )}
-            <div style={{ fontSize: titleSize, fontWeight: 800, lineHeight: 1.05, letterSpacing: -2, color: "#16181C" }}>{v.title}</div>
-            {v.subtitle && <div style={{ marginTop: 20, fontSize: 28, lineHeight: 1.35, color: "#4A515C" }}>{v.subtitle}</div>}
+            <div style={{ fontSize: titleSize, fontWeight: 800, lineHeight: 1.05, letterSpacing: -2, color: "#11294F" }}>{v.title}</div>
+            {v.subtitle && <div style={{ marginTop: 20, fontSize: 28, lineHeight: 1.35, color: "#475569" }}>{v.subtitle}</div>}
             {v.price && (
               <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 28 }}>
-                <div style={{ display: "flex", background: "#F2C230", color: "#16181C", borderRadius: 14, padding: "10px 22px", fontSize: 40, fontWeight: 800 }}>{v.price}</div>
-                {v.priceNote && <div style={{ fontSize: 24, color: "#4A515C" }}>{v.priceNote}</div>}
+                <div style={{ display: "flex", background: "#F28C28", color: "#11294F", borderRadius: 14, padding: "10px 22px", fontSize: 40, fontWeight: 800 }}>{v.price}</div>
+                {v.priceNote && <div style={{ fontSize: 24, color: "#475569" }}>{v.priceNote}</div>}
               </div>
             )}
           </div>
         </div>
         {picture && (
           <div style={{ position: "absolute", right: 48, top: 0, bottom: 18, width: 440, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <img src={picture.src} width={picture.width} height={picture.height} />
+            <img src={picture.src} width={picture.width} height={picture.height} style={{ borderRadius: 28 }} />
           </div>
         )}
-        <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 18, display: "flex", background: "linear-gradient(90deg, #FFC400 0%, #FF7A00 100%)" }} />
+        <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 18, display: "flex", background: "linear-gradient(90deg, #F28C28 0%, #F28C28 34%, #2864B4 34%, #173B73 100%)" }} />
       </div>
     ),
     { ...OG_SIZE, fonts },

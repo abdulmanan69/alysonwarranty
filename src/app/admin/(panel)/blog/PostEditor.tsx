@@ -232,7 +232,7 @@ export function PostEditor({ post, categories, revisions, perms, siteUrl }: { po
             </button>
           )}
           {!readOnly && (
-            <button type="button" onClick={() => void save(primary.intent)} disabled={!!saving} className="rounded-lg bg-asphalt px-4 py-2 text-sm font-semibold text-white hover:bg-road disabled:opacity-60">
+            <button type="button" onClick={() => void save(primary.intent)} disabled={!!saving} className="rounded-lg bg-asphalt px-4 py-2 text-sm font-semibold text-white hover:bg-navy disabled:opacity-60">
               {saving && saving !== "draft" ? "Saving…" : primary.label}
             </button>
           )}

@@ -18,14 +18,15 @@ function Status({ on }: { on: boolean }) {
 }
 
 // Pictures the share-image template may use (files in /public).
-const OG_IMAGES = ["", "/images/cta-car.webp", "/images/car-diagram.webp", "/images/reviews-phone.webp", "/images/parts/transmission.webp", "/images/parts/cylinder-head.webp", "/images/parts/alternator.webp"];
+const OG_IMAGES = ["", "/images/auto-mechanic-tablet.webp", "/images/home-hvac-technician.webp", "/images/hero/hero-suv-sunset-1024.webp", "/images/hero/hero-house-florida-1024.webp", "/images/car-diagram.webp", "/images/parts/transmission.webp", "/images/parts/cylinder-head.webp", "/images/parts/alternator.webp"];
 
 // Share cards currently used by the site's pages.
 const PAGE_CARDS = [
   { page: "Homepage", path: "/", src: "/opengraph-image" },
-  { page: "Get a quote", path: "/quote/auto", src: ogUrl({ eyebrow: "Free quote", title: "Get your car insurance quote in minutes", subtitle: "Compare prices from several insurance companies with one quick form.", image: "/images/cta-car.webp" }) },
+  { page: "Auto warranty quote", path: "/quote/auto-warranty", src: ogUrl({ eyebrow: "Extended car warranty", title: "Get a free quote for your car", subtitle: "Powertrain to complete protection. Free quote, 30-day money-back guarantee.", image: "/images/auto-mechanic-tablet.webp" }) },
+  { page: "Home warranty quote", path: "/quote/home-warranty", src: ogUrl({ eyebrow: "Home warranty", title: "Get a free quote for your home", subtitle: "Systems, appliances or both. Free quote, 30-day money-back guarantee.", image: "/images/home-hvac-technician.webp" }) },
   { page: "Privacy Policy", path: "/privacy", src: ogUrl({ eyebrow: "Legal", title: "Privacy Policy", subtitle: "How we collect, use and protect your information, and the choices you have." }) },
-  { page: "Terms of Use", path: "/terms", src: ogUrl({ eyebrow: "Legal", title: "Terms of Use", subtitle: "The terms that apply when you use our website to compare car insurance quotes." }) },
+  { page: "Terms of Use", path: "/terms", src: ogUrl({ eyebrow: "Legal", title: "Terms of Use", subtitle: "The terms that apply when you use our website and buy a vehicle service contract." }) },
 ];
 
 type Search = { saved?: string; error?: string; og_eyebrow?: string; og_title?: string; og_subtitle?: string; og_price?: string; og_priceNote?: string; og_image?: string };

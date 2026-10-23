@@ -2,16 +2,18 @@
 
 import { useCallback, useEffect, useState, type CSSProperties } from "react";
 
-// Home hero photos: a slow zoom and drift (to the right, away from the headline) on the photo that's showing, then a crossfade to the
+// Home hero photos: a slow zoom and drift on the photo that's showing, then a crossfade to the
 // next one. The first photo loads right away (it's the largest thing on the page); the others
 // only start downloading after the page has loaded, and a slide only changes once the next
 // photo is ready. People who ask their device for less motion get still photos.
 
+// Auto and home photos take turns. `pos` keeps the car or house in view when a narrow screen
+// crops the sides. Photos: Pexels (free to use), see public/images/CREDITS.txt.
 const SLIDES = [
-  { name: "Ram 1500", file: "hero-ram", drift: "2%" },
-  { name: "Your home", file: "hero-home", drift: "1.5%" },
-  { name: "Ford F-150", file: "hero-f150", drift: "1.5%" },
-  { name: "Toyota RAV4", file: "hero-rav4", drift: "1.5%" },
+  { name: "Your SUV", file: "hero-suv-sunset", drift: "-1.5%", pos: "50% 60%" },
+  { name: "Your home", file: "hero-house-florida", drift: "1.5%", pos: "52% 50%" },
+  { name: "Your truck", file: "hero-pickup-field", drift: "1.5%", pos: "26% 60%" },
+  { name: "Your kitchen", file: "hero-kitchen", drift: "-1.5%", pos: "68% 50%" },
 ];
 const SHOW_MS = 7000; // how long each photo stays
 const FADE_MS = 1200; // crossfade length; matches .hero-slide in globals.css
@@ -56,36 +58,41 @@ export function HeroSlides() {
 
   return (
     <>
-      {SLIDES.map((s, i) => {
-        const on = i === 0 || loadRest;
-        return (
-          <img
-            key={s.file}
-            src={on ? `/images/hero/${s.file}-1600.webp` : undefined}
-            srcSet={on ? srcSet(s.file) : undefined}
-            sizes="100vw"
-            fetchPriority={i === 0 ? "high" : undefined}
-            decoding="async"
-            alt=""
-            aria-hidden="true"
-            onLoad={() => setLoaded((l) => (l[i] ? l : l.map((v, j) => (j === i ? true : v))))}
-            style={{ "--kb-x": s.drift } as CSSProperties}
-            className={`hero-slide object-[58%_55%] ${i === active ? "is-active" : ""} ${i === 0 && intro ? "is-intro" : ""}`}
-          />
-        );
-      })}
+      {/* Phones and tablets: the photo fills the hero behind the text. Large screens: it fills the
+          right side and fades into the deep blue behind the headline. */}
+      <div className="absolute inset-0 -z-20 overflow-hidden lg:left-[57%] xl:left-[55%]">
+        {SLIDES.map((s, i) => {
+          const on = i === 0 || loadRest;
+          return (
+            <img
+              key={s.file}
+              src={on ? `/images/hero/${s.file}-1600.webp` : undefined}
+              srcSet={on ? srcSet(s.file) : undefined}
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              fetchPriority={i === 0 ? "high" : undefined}
+              decoding="async"
+              alt=""
+              aria-hidden="true"
+              onLoad={() => setLoaded((l) => (l[i] ? l : l.map((v, j) => (j === i ? true : v))))}
+              style={{ "--kb-x": s.drift, objectPosition: s.pos } as CSSProperties}
+              className={`hero-slide ${i === active ? "is-active" : ""} ${i === 0 && intro ? "is-intro" : ""}`}
+            />
+          );
+        })}
+        <div aria-hidden className="absolute inset-0 hidden bg-[linear-gradient(90deg,#11294F_0%,rgba(17,41,79,0.6)_14%,rgba(17,41,79,0)_42%),linear-gradient(0deg,rgba(10,22,44,0.65)_0%,rgba(10,22,44,0)_32%)] lg:block" />
+      </div>
 
-      {/* Which vehicle is showing, with a bar that fills until the next photo. */}
+      {/* Which photo is showing, with a bar that fills until the next one. */}
       <div className="absolute inset-x-0 bottom-10 hidden md:block">
-        <div className="mx-auto flex max-w-6xl justify-end gap-6 px-5">
+        <div className="mx-auto flex max-w-6xl justify-end gap-4 px-5 xl:gap-6">
           {SLIDES.map((s, i) => (
             <button
               key={s.file}
               type="button"
               onClick={() => show(i)}
               aria-pressed={i === active}
-              aria-label={`Show the ${s.name} photo`}
-              className={`w-28 text-left text-xs font-semibold uppercase tracking-[0.12em] transition ${i === active ? "text-white" : "text-white/55 hover:text-white/85"}`}
+              aria-label={`Show photo: ${s.name}`}
+              className={`w-28 whitespace-nowrap text-left text-xs font-semibold uppercase tracking-[0.12em] transition ${i === active ? "text-white" : "text-white/65 hover:text-white"}`}
             >
               <span className="block h-[3px] overflow-hidden rounded-full bg-white/25">
                 {i === active && (

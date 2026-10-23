@@ -9,7 +9,7 @@ export const metadata = { title: "Sign in" };
 
 const input =
   "block h-11 w-full rounded-lg border border-[#D0D5DD] bg-white px-3.5 text-[15px] text-asphalt shadow-[0_1px_2px_rgba(16,24,40,0.05)] placeholder:text-road/45 focus:border-sky focus:outline-none focus:ring-4 focus:ring-sky/15";
-const button = "inline-flex h-11 w-full items-center justify-center rounded-lg bg-asphalt text-[15px] font-semibold text-white transition hover:bg-road";
+const button = "inline-flex h-11 w-full items-center justify-center rounded-lg bg-asphalt text-[15px] font-semibold text-white transition hover:bg-navy";
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ step?: string; error?: string; next?: string }> }) {
   const { step, error, next = "/admin" } = await searchParams;
@@ -19,10 +19,10 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
   const firstRun = !codeStep && (await db.adminUser.count()) === 0;
 
   return (
-    <main className="grid min-h-screen place-items-center bg-[radial-gradient(circle_at_top,#1F5FAD_0%,#101828_55%)] px-4 py-10">
+    <main className="grid min-h-screen place-items-center bg-[radial-gradient(circle_at_top,#2864B4_0%,#101828_55%)] px-4 py-10">
       <div className="w-full max-w-sm">
         <div className="mb-6 flex justify-center">
-          <img src="/brand/logo.webp" alt={site.name} width={720} height={169} className="h-11 w-auto rounded-lg bg-white px-3 py-2" />
+          <img src="/brand/alyson-logo.webp" alt={site.name} width={456} height={139} className="h-11 w-auto rounded-lg bg-white px-3 py-2" />
         </div>
         <div className="rounded-2xl bg-white p-7 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45)]">
           <h1 className="text-xl font-bold">{codeStep ? "Enter your security code" : "Sign in to the admin"}</h1>

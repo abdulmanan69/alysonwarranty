@@ -14,7 +14,7 @@ export const metadata = {
       eyebrow: "Extended car warranty",
       title: "Get a free quote for your car",
       subtitle: "Powertrain to complete protection. Free quote, 30-day money-back guarantee.",
-      image: "/images/cta-car.webp",
+      image: "/images/auto-mechanic-tablet.webp",
     },
     { url: "/quote/auto-warranty", title: `Extended Car Warranty Quote | ${site.name}` },
   ),

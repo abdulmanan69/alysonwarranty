@@ -97,7 +97,7 @@ export default async function BlogPostsPage({ searchParams }: { searchParams: Pr
           <form className="flex gap-2">
             {status && <input type="hidden" name="status" value={status} />}
             <input name="q" defaultValue={q} placeholder="Search titles" aria-label="Search posts" className="h-9 w-56 rounded-lg border border-[#D0D5DD] px-3 text-sm focus:border-sky focus:outline-none" />
-            <button className="h-9 rounded-lg bg-asphalt px-3 text-sm font-semibold text-white hover:bg-road">Search</button>
+            <button className="h-9 rounded-lg bg-asphalt px-3 text-sm font-semibold text-white hover:bg-navy">Search</button>
           </form>
         </div>
 

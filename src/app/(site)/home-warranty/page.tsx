@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero, QuoteBanner } from "@/components/sections";
+import { PageHero, PageHeroPhoto, PhotoChip, QuoteBanner } from "@/components/sections";
 import { ogMetadata } from "@/lib/og";
 import { HOME_DISCLOSURE } from "@/lib/products";
 import { jsonLd } from "@/lib/security";
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: PATH },
   ...ogMetadata(
-    { eyebrow: "Home warranty", title: "Plans, coverage and how it works", subtitle: "Systems, appliances or both, for the breakdowns that cost the most.", image: "/images/cta-home.webp" },
+    { eyebrow: "Home warranty", title: "Plans, coverage and how it works", subtitle: "Systems, appliances or both, for the breakdowns that cost the most.", image: "/images/home-warranty/house-front-porch-1024.webp" },
     { url: PATH, title: `Home Warranty Guide | ${site.name}`, description },
   ),
 };
@@ -90,9 +90,15 @@ export default async function HomeWarrantyPage() {
         title={title}
         intro="A home warranty helps pay to repair or replace your heating, air conditioning, plumbing, electrical and appliances when they fail from normal wear. Here's how the plans differ, what they exclude and how a service call works."
         crumbs={[{ name: "Home warranty", href: PATH }]}
+        media={
+          <PageHeroPhoto base="/images/home-warranty/house-front-porch" alt="Two-story family house with a front porch and a green lawn">
+            <PhotoChip corner="top-left" icon="M3 11 12 3l9 8M5 10v10h14V10M10 20v-6h4v6">Systems, appliances or both</PhotoChip>
+            <PhotoChip corner="bottom-right" icon="M20 6 9 17l-5-5">30-day money-back guarantee</PhotoChip>
+          </PageHeroPhoto>
+        }
       >
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/quote/home-warranty" className="btn-primary bg-line text-asphalt hover:bg-[#E3B21F]">Get my free home quote</Link>
+          <Link href="/quote/home-warranty" className="btn-primary bg-line text-asphalt hover:bg-line-dark">Get my free home quote</Link>
           <a href={biz.phoneHref} className="btn-secondary">Call {biz.phone}</a>
         </div>
       </PageHero>
@@ -123,8 +129,8 @@ export default async function HomeWarrantyPage() {
             The contract lists the items it covers, the limits it pays per item, the exclusions, the service call fee and how to request service. Those pages,
             not the brochure, decide what you get.
           </p>
-          <img src="/images/home-warranty/hvac-heat-pump-unit.webp" alt="Heat pump unit installed outside a house" width={1280} height={960} loading="lazy" decoding="async" />
-          <p className="text-sm"><em>Heating and cooling systems are the most expensive items in most homes and the reason many owners buy a systems plan. Photo: HarmvdB on Pixabay.</em></p>
+          <img src="/images/home-warranty/ac-technician-gauges.webp" alt="HVAC technician checking an air conditioning unit with refrigerant gauges" width={1280} height={853} loading="lazy" decoding="async" />
+          <p className="text-sm"><em>Heating and cooling systems are the most expensive items in most homes and the reason many owners buy a systems plan. Photo: José Andrés Pacheco Cortes on Pexels.</em></p>
 
           <h2>Home warranty plans compared</h2>
           <table>
@@ -160,8 +166,8 @@ export default async function HomeWarrantyPage() {
             <li>Costs above the per-item or per-year limit in the contract</li>
             <li>Code upgrades, permits and disposal fees, unless the contract includes them</li>
           </ul>
-          <img src="/images/home-warranty/kitchen-appliances.webp" alt="Kitchen with built-in oven, microwave and refrigerator" width={1280} height={853} loading="lazy" decoding="async" />
-          <p className="text-sm"><em>Appliance plans cover the kitchen and laundry items that fail most often as a home ages. Photo: shadowfirearts on Pixabay.</em></p>
+          <img src="/images/home-warranty/kitchen-stainless-appliances.webp" alt="Kitchen with a stainless steel refrigerator, range and microwave" width={1280} height={853} loading="lazy" decoding="async" />
+          <p className="text-sm"><em>Appliance plans cover the kitchen and laundry items that fail most often as a home ages. Photo: Curtis Adams on Pexels.</em></p>
 
           <h2>How a service call works</h2>
           <ol>

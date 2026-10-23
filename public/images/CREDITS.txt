@@ -1,0 +1,18 @@
+Photos on this site come from Pexels and are used under the Pexels License
+(https://www.pexels.com/license/): free for commercial use, no attribution required.
+Credits are kept here so each file can be traced back to its source.
+
+hero/hero-suv-sunset-*            Jetour Georgia         https://www.pexels.com/photo/33431048/
+hero/hero-house-florida-*         Ron Greenberg          https://www.pexels.com/photo/20708166/
+hero/hero-pickup-field-*          Hyundai Motor Group    https://www.pexels.com/photo/32513625/
+hero/hero-kitchen-*               Curtis Adams           https://www.pexels.com/photo/4682113/
+auto-mechanic-tablet              Gustavo Fring          https://www.pexels.com/photo/6870298/
+home-hvac-technician              Kathleen Austin Kuhn   https://www.pexels.com/photo/32497161/
+customer-on-phone                 Yan Krukau             https://www.pexels.com/photo/4458403/
+why-us/support-agent-*            Kampus Production      https://www.pexels.com/photo/8204396/
+auto-warranty/mechanic-smiling-*  Artem Podrez           https://www.pexels.com/photo/8985457/
+home-warranty/house-front-porch-* Curtis Adams           https://www.pexels.com/photo/5071177/
+home-warranty/ac-technician-gauges José Andrés Pacheco Cortes https://www.pexels.com/photo/5463575/
+home-warranty/kitchen-stainless-appliances Curtis Adams  https://www.pexels.com/photo/6835154/
+
+When replacing a photo, give the new file a new name (browsers cache /images for a week).

@@ -28,7 +28,7 @@ export default async function DoNotSellPage({ searchParams }: { searchParams: Pr
       />
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 lg:grid-cols-[1.4fr_1fr] lg:gap-12">
         <div className="rounded-[28px] bg-[linear-gradient(155deg,#E8F0FB_0%,#F7F9FC_50%,#FFF6DA_100%)] p-2.5">
-          <div className="rounded-[22px] bg-white p-6 shadow-[0_10px_30px_rgba(31,95,173,0.08)] sm:p-8">
+          <div className="rounded-[22px] bg-white p-6 shadow-[0_10px_30px_rgba(40,100,180,0.08)] sm:p-8">
             <PrivacyRequestForm initialType={sp.type} phone={vars.privacy_phone} />
           </div>
         </div>
